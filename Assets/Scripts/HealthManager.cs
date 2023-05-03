@@ -2,19 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public static HealthManager instance;
+    public static HealthManager Instance;
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     public float currentHealth, maxHealth;
+    public Slider healthSlider;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void TakeDamage(float damageToTake)
@@ -24,6 +35,7 @@ public class HealthManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        healthSlider.value = currentHealth;
     }
 
     

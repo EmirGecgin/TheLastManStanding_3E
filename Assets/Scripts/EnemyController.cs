@@ -10,29 +10,30 @@ public class EnemyController : MonoBehaviour
     private Transform _target;
     public float damage;
     public float hitWaitTime = 1f;
-    private float hitCounter;
+    private float _hitCounter;
     
     public void Awake()
     {
-        _target = FindObjectOfType<PlayerMovement>().transform;
+        //_target = FindObjectOfType<PlayerMovement>().transform;
+        _target = HealthManager.Instance.transform;
     }
 
     // Update is called once per frame
     public void Update()
     {
         rb.velocity = (_target.position - transform.position).normalized * enemySpeed;
-        if (hitCounter > 0f)
+        if (_hitCounter > 0f)
         {
-            hitCounter -= Time.deltaTime;
+            _hitCounter -= Time.deltaTime;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" && hitCounter <= 0f)
+        if (col.gameObject.tag == "Player" && _hitCounter <= 0f)
         {
-            HealthManager.instance.TakeDamage(damage);
-            hitCounter = hitWaitTime;
+            HealthManager.Instance.TakeDamage(damage);
+            _hitCounter = hitWaitTime;
         }
     }
 }
