@@ -5,24 +5,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private float speed;
+    private Transform _target;
 
     private void Awake()
     {
-        transform.position = playerTransform.position;
+        _target = FindObjectOfType<PlayerMovement>().transform;
     }
-
     private void LateUpdate()
     {
-        CameraMovement();
+        SetCamera();
     }
-
-    private void CameraMovement()
+    private void SetCamera()
     {
-        if (playerTransform != null)
-        {
-            transform.position = Vector2.Lerp(transform.position, playerTransform.position, speed);
-        }
+        transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
     }
 }
