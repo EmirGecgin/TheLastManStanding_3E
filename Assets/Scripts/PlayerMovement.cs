@@ -8,9 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSpeed;
     private Animator _anim;
     
+    
     private void Awake()
     {
         _anim = GetComponent<Animator>();
+        
     }
 
     private void Update()
@@ -28,11 +30,14 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != Vector3.zero)//decide which anim use
         {
             _anim.SetBool("isRunning",true);//run
+            
         }
         else
         {
             _anim.SetBool("isRunning",false);//idle
+            
         }
     }
+
     
 }
