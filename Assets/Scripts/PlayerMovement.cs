@@ -5,43 +5,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private Rigidbody2D _rb;
-    private Vector2 _moveAmount;
+    [SerializeField] private float playerSpeed;
     private Animator _anim;
-
+    
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        GetMove();
+        Move();
+        
     }
 
-    private void FixedUpdate()
-    {
-        SetMove();
-    }
 
-    void GetMove()
+    private void Move()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        _moveAmount = moveInput.normalized * speed;
-        if (moveInput != Vector2.zero)
+        Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0f);//take moveInput
+        moveInput.Normalize();//normalize
+        transform.position += moveInput * playerSpeed * Time.deltaTime;//movePlayer
+        if (moveInput != Vector3.zero)//decide which anim use
         {
-            _anim.SetBool("isRunning",true);
+            _anim.SetBool("isRunning",true);//run
         }
         else
         {
-            _anim.SetBool("isRunning",false);
+            _anim.SetBool("isRunning",false);//idle
         }
     }
-
-    void SetMove()
-    {
-        _rb.MovePosition(_rb.position + _moveAmount * Time.fixedDeltaTime);
-    }
+    
 }
