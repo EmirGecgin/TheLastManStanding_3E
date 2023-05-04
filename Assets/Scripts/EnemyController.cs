@@ -11,14 +11,15 @@ public class EnemyController : MonoBehaviour
     public float damage;
     public float hitWaitTime = 1f;
     private float _hitCounter;
-    
+    [SerializeField] private float health = 5;
+
     public void Start()
     {
         //_target = FindObjectOfType<PlayerMovement>().transform;
         _target = HealthManager.Instance.transform;
     }
 
-    // Update is called once per frame
+    
     public void Update()
     {
         rb.velocity = (_target.position - transform.position).normalized * enemySpeed;
@@ -34,6 +35,15 @@ public class EnemyController : MonoBehaviour
         {
             HealthManager.Instance.TakeDamage(damage);
             _hitCounter = hitWaitTime;
+        }
+    }
+
+    public void TakeDamage(float damageToTake)
+    {
+        health -= damageToTake;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
