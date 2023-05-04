@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     public float hitWaitTime = 1f;
     private float _hitCounter;
     
-    public void Awake()
+    public void Start()
     {
         //_target = FindObjectOfType<PlayerMovement>().transform;
         _target = HealthManager.Instance.transform;

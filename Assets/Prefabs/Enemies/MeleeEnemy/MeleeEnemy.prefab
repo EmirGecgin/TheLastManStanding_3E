@@ -206,6 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3734316703695398717}
   enemySpeed: 5
+  damage: 5
+  hitWaitTime: 1
 --- !u!1 &3734316703816503329
 GameObject:
   m_ObjectHideFlags: 0

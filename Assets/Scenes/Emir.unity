@@ -857,9 +857,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 1526586517}
-  timeToSpawn: 0.5
+  timeToSpawn: 0.4
   minSpawn: {fileID: 1863039749}
   maxSpawn: {fileID: 1897815811}
+  checkPerFrame: 20
 --- !u!4 &1542111902
 Transform:
   m_ObjectHideFlags: 0

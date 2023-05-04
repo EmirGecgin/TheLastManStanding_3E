@@ -10,12 +10,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform minSpawn, maxSpawn;
 
     private Transform _target;
-    
-    void Awake()
+
+    private float _despawnDistance;
+
+    private List<GameObject> _spawnedEnemies = new List<GameObject>();
+
+    public int checkPerFrame;
+    private int _enemyToCheck;
+
+    void Start()
     {
         _spawnCounter = timeToSpawn;
         _target = HealthManager.Instance.transform;
 
+        _despawnDistance = Vector3.Distance(transform.position, maxSpawn.position) + 4f;
     }
     
     void Update()
@@ -30,10 +38,43 @@ public class EnemySpawner : MonoBehaviour
         {
             _spawnCounter = timeToSpawn;
             //Instantiate(enemyToSpawn, transform.position, transform.rotation);
-            Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation);
+            GameObject newEnemy = Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation);
+            _spawnedEnemies.Add(newEnemy);
         }
 
         transform.position = _target.position;
+
+        int checkTarget = _enemyToCheck + checkPerFrame;
+        while (_enemyToCheck < checkTarget)
+        {
+            if (_enemyToCheck < _spawnedEnemies.Count)
+            {
+                if (_spawnedEnemies[_enemyToCheck] != null)
+                {
+                    if (Vector3.Distance(transform.position, _spawnedEnemies[_enemyToCheck].transform.position) >
+                        _despawnDistance)
+                    {
+                        Destroy(_spawnedEnemies[_enemyToCheck]);
+                        _spawnedEnemies.RemoveAt(_enemyToCheck);
+                        checkTarget--;
+                    }
+                    else
+                    {
+                        _enemyToCheck++;
+                    }
+                }
+                else
+                {
+                    _spawnedEnemies.RemoveAt(_enemyToCheck);
+                    checkTarget--;
+                }
+            }
+            else
+            {
+                _enemyToCheck = 0;
+                checkTarget = 0;
+            }
+        }
     }
 
     public Vector3 SelectSpawnPoint()
