@@ -9,6 +9,7 @@ public class EnemyDamager : MonoBehaviour
 
     [SerializeField] private float lifeTime,growSpeed = 5f;
     private Vector3 _targetSize;
+    public bool shouldKnockBack;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class EnemyDamager : MonoBehaviour
     {
         if (col.tag=="Enemy")
         {
-            col.GetComponent<EnemyController>().TakeDamage(damageAmount);
+            col.GetComponent<EnemyController>().TakeDamage(damageAmount,shouldKnockBack);
         }
     }
 }

@@ -12,6 +12,9 @@ public class EnemyController : MonoBehaviour
     public float hitWaitTime = 1f;
     private float _hitCounter;
     [SerializeField] private float health = 5;
+    [SerializeField] private float knockBackTime=.5f;
+    private float _knockBackCounter;
+    
 
     public void Start()
     {
@@ -22,6 +25,21 @@ public class EnemyController : MonoBehaviour
     
     public void Update()
     {
+        if (_knockBackCounter > 0)
+        {
+            _knockBackCounter -= Time.deltaTime;
+
+            if (enemySpeed >0)
+            {
+                enemySpeed = -enemySpeed * 2;
+            }
+
+            if (_knockBackCounter <= 0)
+            {
+                enemySpeed = Math.Abs(enemySpeed * .5f);
+            }
+        }
+        
         rb.velocity = (_target.position - transform.position).normalized * enemySpeed;
         if (_hitCounter > 0f)
         {
@@ -45,5 +63,14 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void TakeDamage(float damageToTake, bool shouldKnockBack)
+    {
+        TakeDamage(damageToTake);
+        if (shouldKnockBack == true)
+        {
+            _knockBackCounter = knockBackTime;
+        }   
     }
 }
