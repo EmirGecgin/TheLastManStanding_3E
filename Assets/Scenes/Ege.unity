@@ -882,6 +882,19 @@ MonoBehaviour:
   minSpawn: {fileID: 416727203}
   maxSpawn: {fileID: 561770794}
   checkPerFrame: 20
+  waves:
+  - enemyToSpawn: {fileID: 3734316703695398689, guid: 57bfd43d1fc3db846a768950f71e2642, type: 3}
+    waveLength: 10
+    timeBetweenSpawn: 0.5
+  - enemyToSpawn: {fileID: 1963595913376425580, guid: b434acfb7882f5741a037bd0e51b0e56, type: 3}
+    waveLength: 10
+    timeBetweenSpawn: 0.5
+  - enemyToSpawn: {fileID: 3582039957356067302, guid: 526ace02e1b86914291edb0bfb6f23c6, type: 3}
+    waveLength: 10
+    timeBetweenSpawn: 0.5
+  - enemyToSpawn: {fileID: 6203048547750053301, guid: 5262fe76ccc651241a6aee3ec405cec8, type: 3}
+    waveLength: 10
+    timeBetweenSpawn: 0.5
 --- !u!4 &1778335009
 Transform:
   m_ObjectHideFlags: 0
