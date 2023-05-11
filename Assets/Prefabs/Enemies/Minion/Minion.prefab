@@ -629,7 +629,8 @@ MonoBehaviour:
   enemySpeed: 3
   damage: 4
   hitWaitTime: 1
-  health: 5
+  health: 10
+  knockBackTime: 0.5
 --- !u!1 &8108935658948131878
 GameObject:
   m_ObjectHideFlags: 0
