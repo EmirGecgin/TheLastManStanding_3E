@@ -8,15 +8,14 @@ public class DamageNumber : MonoBehaviour
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private float lifetime;
     [SerializeField] private float lifetimeCounter;
+    [SerializeField] private float floatSpeed;
     
-    void Start()
-    {
-        lifetimeCounter = lifetime;
-    }
+    
     
     void Update()
     {
         LifetimeCondition();
+        NumbersMoveCont();
     }
 
     public void Setup(int damageDisplay)
@@ -32,8 +31,14 @@ public class DamageNumber : MonoBehaviour
             lifetimeCounter -= Time.deltaTime;
             if (lifetimeCounter <= 0)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                DamageNumberController.Instance.PlacePool(this);
             }
         }
+    }
+
+    public void NumbersMoveCont()
+    {
+        transform.position += Vector3.up * floatSpeed * Time.deltaTime;
     }
 }

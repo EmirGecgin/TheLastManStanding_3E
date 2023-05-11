@@ -11,6 +11,7 @@ public class EnemyDamager : MonoBehaviour
     [SerializeField] private float lifeTime,growSpeed = 5f;
     private Vector3 _targetSize;
     public bool shouldKnockBack;
+    public bool destroyParent;
 
     private void Start()
     {
@@ -29,6 +30,10 @@ public class EnemyDamager : MonoBehaviour
             if (transform.localScale.x == 0f)
             {
                 Destroy(gameObject);
+                if (destroyParent)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
             }
         }
 
