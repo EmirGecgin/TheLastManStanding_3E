@@ -881,7 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6203048545963159923}
   enemySpeed: 2
-  damage: 0
+  damage: 5
   hitWaitTime: 1
   health: 25
   knockBackTime: 0.5
+  expToGive: 10

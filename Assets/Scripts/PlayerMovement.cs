@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed;
+    public float playerSpeed;
     private Animator _anim;
+
+    public float pickUpRange;
     
     
     private void Awake()
