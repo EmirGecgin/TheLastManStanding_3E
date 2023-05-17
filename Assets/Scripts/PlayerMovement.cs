@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public float playerSpeed;
     private Animator _anim;
 
     public float pickUpRange;
+    public Weapon activeWeapon;
     
-    
-    private void Awake()
+    private void Start()
     {
         _anim = GetComponent<Animator>();
         

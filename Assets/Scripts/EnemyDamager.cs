@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class EnemyDamager : MonoBehaviour
 {
-    [SerializeField] private float damageAmount;
+    public float damageAmount;
 
-    [SerializeField] private float lifeTime,growSpeed = 5f;
+    public float lifeTime,growSpeed = 5f;
     private Vector3 _targetSize;
     public bool shouldKnockBack;
     public bool destroyParent;
