@@ -15,6 +15,7 @@ public class FireballWeapon : Weapon
     private void Start()
     {
         SetStats();
+        //UIController.Instance.levelUpButtons[0].UpdateButtonDisplayFunc(this);
     }
 
     void Update()

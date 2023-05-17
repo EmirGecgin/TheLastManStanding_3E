@@ -18,6 +18,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private Slider expLevelSlider;
     [SerializeField] private TMP_Text expLevelText;
 
+    public LevelUpSelectionButton[] levelUpButtons;
+
+    public GameObject LevelUpPanel;
+
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
