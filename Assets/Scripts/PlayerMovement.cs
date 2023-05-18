@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     private Animator _anim;
 
     public float pickUpRange;
-    public Weapon activeWeapon;
     
+    //public Weapon activeWeapon;
+
+    public List<Weapon> unassignedWeapons, assignedWeapons;
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        
+        AddWeapon(Random.Range(0, unassignedWeapons.Count));
+
     }
 
     private void Update()
@@ -46,6 +50,23 @@ public class PlayerMovement : MonoBehaviour
             _anim.SetBool("isRunning",false);//idle
             
         }
+    }
+
+    public void AddWeapon(int Weaponnumber)
+    {
+        if (Weaponnumber < unassignedWeapons.Count)
+        {
+            assignedWeapons.Add((unassignedWeapons[Weaponnumber]));
+            unassignedWeapons[Weaponnumber].gameObject.SetActive(true);
+            unassignedWeapons.RemoveAt(Weaponnumber);
+        }
+    }
+
+    public void AddWeapon(Weapon weaponToAdd)
+    {
+        weaponToAdd.gameObject.SetActive(true);
+        assignedWeapons.Add((weaponToAdd));
+        unassignedWeapons.Remove(weaponToAdd);
     }
 
     
