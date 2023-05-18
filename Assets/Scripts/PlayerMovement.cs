@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     //public Weapon activeWeapon;
 
     public List<Weapon> unassignedWeapons, assignedWeapons;
+
+    public int maxWeapons = 3;
+    [HideInInspector] public List<Weapon> fullyLevelledWeapons = new List<Weapon>();
     private void Start()
     {
         _anim = GetComponent<Animator>();
