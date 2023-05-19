@@ -28,8 +28,14 @@ public class FireballWeapon : Weapon
         if (_spawnCounter <= 0)
         {
             _spawnCounter = timeBetweenSpawn;
-            
-            Instantiate(fireballToSpawn,fireballToSpawn.position,fireballToSpawn.rotation,fireballHolder).gameObject.SetActive(true);
+            //Instantiate(fireballToSpawn,fireballToSpawn.position,fireballToSpawn.rotation,fireballHolder).gameObject.SetActive(true);
+
+            for (int i = 0; i < stats[weaponLevel].amount; i++)
+            {
+                float rotation = (360f / stats[weaponLevel].amount) * i;
+                Instantiate(fireballToSpawn,fireballToSpawn.position,Quaternion.Euler(0f,0f,rotation),fireballHolder).gameObject.SetActive(true);
+
+            }
         }
 
         if (statsUpdated)

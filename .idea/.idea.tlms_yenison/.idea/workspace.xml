@@ -8,8 +8,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelUpSelectionButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -86,6 +84,7 @@
       <workItem from="1684236342403" duration="4454000" />
       <workItem from="1684322012891" duration="3891000" />
       <workItem from="1684399531018" duration="3320000" />
+      <workItem from="1684484993719" duration="3618000" />
     </task>
     <servers />
   </component>
