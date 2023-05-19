@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        if (assignedWeapons.Count == 0)
+        {
+            AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        }
 
     }
 

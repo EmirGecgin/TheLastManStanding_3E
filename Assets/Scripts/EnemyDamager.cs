@@ -13,6 +13,12 @@ public class EnemyDamager : MonoBehaviour
     public bool shouldKnockBack;
     public bool destroyParent;
 
+    public bool damageOverTime;
+    public float timeBetweenDamage;
+    public float damageCounter;
+
+    private List<EnemyController> _enemiesInRange = new List<EnemyController>();
+
     private void Start()
     {
         _targetSize = transform.localScale;
@@ -37,14 +43,58 @@ public class EnemyDamager : MonoBehaviour
             }
         }
 
+        if (damageOverTime == true)
+        {
+            damageCounter -= Time.deltaTime;
+            if (damageCounter <= 0)
+            {
+                damageCounter = timeBetweenDamage;
+                for (int i = 0; i < _enemiesInRange.Count; i++)
+                {
+                    if (_enemiesInRange[i] != null)
+                    {
+                        _enemiesInRange[i].TakeDamage(damageAmount,shouldKnockBack);
+                        
+                    }
+                    else
+                    {
+                        _enemiesInRange.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+        }
+
     }
 
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag=="Enemy")
+        if (damageOverTime == false)
         {
-            col.GetComponent<EnemyController>().TakeDamage(damageAmount,shouldKnockBack);
+            if (col.tag=="Enemy")
+            {
+                col.GetComponent<EnemyController>().TakeDamage(damageAmount,shouldKnockBack);
+            }
+        }
+        else
+        {
+            if (col.tag == "Enemy")
+            {
+                _enemiesInRange.Add(col.GetComponent<EnemyController>());
+            }
+        }
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (damageOverTime == true)
+        {
+            if (other.tag == "Enemy")
+            {
+                _enemiesInRange.Remove(other.GetComponent<EnemyController>());
+            }
         }
     }
 }
