@@ -28,6 +28,10 @@ PrefabInstance:
       value: OneEyeEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5525476047608149199, guid: 1fefb5f899232f44fa4833ef4fde0aca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525476047608149199, guid: 1fefb5f899232f44fa4833ef4fde0aca, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}

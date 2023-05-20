@@ -19,6 +19,7 @@ public class EnemyDamager : MonoBehaviour
 
     private List<EnemyController> _enemiesInRange = new List<EnemyController>();
 
+    public bool destroyOnImpact;
     private void Start()
     {
         _targetSize = transform.localScale;
@@ -75,6 +76,11 @@ public class EnemyDamager : MonoBehaviour
             if (col.tag=="Enemy")
             {
                 col.GetComponent<EnemyController>().TakeDamage(damageAmount,shouldKnockBack);
+
+                if (destroyOnImpact)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else

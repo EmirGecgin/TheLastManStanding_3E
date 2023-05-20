@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelUpSelectionButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/ProjectileWeapon.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -85,6 +86,8 @@
       <workItem from="1684322012891" duration="3891000" />
       <workItem from="1684399531018" duration="3320000" />
       <workItem from="1684484993719" duration="3618000" />
+      <workItem from="1684581985305" duration="4000" />
+      <workItem from="1684582561779" duration="5234000" />
     </task>
     <servers />
   </component>

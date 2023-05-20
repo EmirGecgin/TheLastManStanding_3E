@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 6203048545963159923}
   - component: {fileID: 6203048545963159920}
   - component: {fileID: 6203048545963159924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SkelatonBoss 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
