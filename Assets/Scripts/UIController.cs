@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
 
     public GameObject LevelUpPanel;
 
+    public TMP_Text coinText;
+
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
@@ -33,5 +35,10 @@ public class UIController : MonoBehaviour
     {
         LevelUpPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void UpdateCoins()
+    {
+        coinText.text = "Coins: " + CoinController.Instance.currentCoins;
     }
 }
