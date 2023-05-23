@@ -24,6 +24,9 @@ public class UIController : MonoBehaviour
 
     public TMP_Text coinText;
 
+    public PlayerStatUpgradeDisplay moveSpeedUpgradeDisp, healthUpgradeDisp;
+    public PlayerStatUpgradeDisplay pickupRangeUpgradeDisp, maxWeaponUpgradeDisp;
+
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
@@ -40,5 +43,29 @@ public class UIController : MonoBehaviour
     public void UpdateCoins()
     {
         coinText.text = "Coins: " + CoinController.Instance.currentCoins;
+    }
+    
+    public void PurchaseMoveSpeed()
+    {
+        PlayerStatController.instance.PurchaseMoveSpeed();
+        SkipLevelUp();
+    }
+
+    public void PurchaseHealth()
+    {
+        PlayerStatController.instance.PurchaseHealth();
+        SkipLevelUp();
+    }
+
+    public void PurchasePickupRange()
+    {
+        PlayerStatController.instance.PurchasePickupRange();
+        SkipLevelUp();
+    }
+
+    public void PurchaseMaxWeapons()
+    {
+        PlayerStatController.instance.PurchaseMaxWeapons();
+        SkipLevelUp();
     }
 }
