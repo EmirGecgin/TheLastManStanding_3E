@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
     public PlayerStatUpgradeDisplay moveSpeedUpgradeDisp, healthUpgradeDisp;
     public PlayerStatUpgradeDisplay pickupRangeUpgradeDisp, maxWeaponUpgradeDisp;
 
+    public TMP_Text timeText;
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
@@ -67,5 +68,13 @@ public class UIController : MonoBehaviour
     {
         PlayerStatController.instance.PurchaseMaxWeapons();
         SkipLevelUp();
+    }
+
+    public void UpdateTimer(float time)
+    {
+        float minutes = Mathf.FloorToInt(time / 60f);
+        float seconds = Mathf.FloorToInt(time % 60);
+
+        timeText.text = "Time: " + minutes + ":" + seconds.ToString("00");
     }
 }

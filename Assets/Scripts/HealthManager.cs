@@ -14,6 +14,7 @@ public class HealthManager : MonoBehaviour
     }
     public float currentHealth, maxHealth;
     public Slider healthSlider;
+    public GameObject deathEffect;
 
     private void Start()
     {
@@ -36,6 +37,8 @@ public class HealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            LevelManager.instance.EndLevel();
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
         healthSlider.value = currentHealth;
     }
