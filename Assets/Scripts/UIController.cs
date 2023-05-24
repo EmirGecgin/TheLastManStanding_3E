@@ -32,7 +32,19 @@ public class UIController : MonoBehaviour
 
     public GameObject levelEndInterface;
     public TMP_Text endTimeText;
-    
+
+    public string mainMenuName;
+
+    public GameObject pauseScreen;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause();
+        }
+    }
+
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
@@ -85,11 +97,36 @@ public class UIController : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        
+        SceneManager.LoadScene(mainMenuName);
+        Time.timeScale = 1f;
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PauseUnpause()
+    {
+        if (pauseScreen.activeSelf == false)
+        {
+            
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+            if (LevelUpPanel.activeSelf == false)
+            {
+                Time.timeScale = 1f;
+            }
+        }
     }
 }
