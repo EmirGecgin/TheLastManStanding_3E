@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
 
     private bool isGameActive;
     public float timer;
+
+    public float waitToShowTheEndScreenInterface=1f;
     void Start()
     {
         isGameActive = true;
@@ -32,5 +34,16 @@ public class LevelManager : MonoBehaviour
     public void EndLevel()
     {
         isGameActive = false;
+        StartCoroutine(EndLevelCoroutine());
+    }
+
+    IEnumerator EndLevelCoroutine()
+    {
+        yield return new WaitForSeconds(waitToShowTheEndScreenInterface);
+        float minutes = Mathf.FloorToInt(timer / 60f);
+        float seconds = Mathf.FloorToInt(timer % 60);
+
+        UIController.Instance.endTimeText.text = minutes.ToString() + " mins " + seconds.ToString("00" + " secs");
+        UIController.Instance.levelEndInterface.SetActive(true);
     }
 }

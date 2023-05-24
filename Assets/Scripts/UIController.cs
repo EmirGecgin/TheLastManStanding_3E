@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class UIController : MonoBehaviour
@@ -28,6 +29,10 @@ public class UIController : MonoBehaviour
     public PlayerStatUpgradeDisplay pickupRangeUpgradeDisp, maxWeaponUpgradeDisp;
 
     public TMP_Text timeText;
+
+    public GameObject levelEndInterface;
+    public TMP_Text endTimeText;
+    
     public void UpdateExperience(int currentExp, int levelExp,int currentLevel)
     {
         expLevelSlider.maxValue = levelExp;
@@ -76,5 +81,15 @@ public class UIController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
 
         timeText.text = "Time: " + minutes + ":" + seconds.ToString("00");
+    }
+
+    public void GoToMainMenu()
+    {
+        
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
