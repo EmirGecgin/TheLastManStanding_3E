@@ -44,6 +44,7 @@ public class ProjectileWeapon : Weapon
                         .SetActive(true);
 
                 }
+                SFXManager.instance.PlaySfxPitched(6);
             }
         }
 

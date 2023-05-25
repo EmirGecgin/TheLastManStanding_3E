@@ -39,6 +39,7 @@ public class HealthManager : MonoBehaviour
             gameObject.SetActive(false);
             LevelManager.instance.EndLevel();
             Instantiate(deathEffect, transform.position, transform.rotation);
+            SFXManager.instance.PlaySfx(3);
         }
         healthSlider.value = currentHealth;
     }

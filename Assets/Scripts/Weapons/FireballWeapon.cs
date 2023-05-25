@@ -34,7 +34,7 @@ public class FireballWeapon : Weapon
             {
                 float rotation = (360f / stats[weaponLevel].amount) * i;
                 Instantiate(fireballToSpawn,fireballToSpawn.position,Quaternion.Euler(0f,0f,rotation),fireballHolder).gameObject.SetActive(true);
-
+                SFXManager.instance.PlaySfx(8);
             }
         }
 

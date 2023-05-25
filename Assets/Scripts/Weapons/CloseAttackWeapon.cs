@@ -49,6 +49,7 @@ public class CloseAttackWeapon : Weapon
                 Instantiate(damager,damager.transform.position,Quaternion.Euler(0f,0f,damager.transform.rotation.eulerAngles.z+rotation),transform).gameObject.SetActive(true);
 
             }
+            SFXManager.instance.PlaySfxPitched(9);
         }
     }
 

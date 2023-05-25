@@ -21,6 +21,7 @@ public class CoinController : MonoBehaviour
         currentCoins += coinsToAdd;
         
         UIController.Instance.UpdateCoins();
+        SFXManager.instance.PlaySfxPitched(2);
     }
 
     public void DropCoin(Vector3 position,int value)
