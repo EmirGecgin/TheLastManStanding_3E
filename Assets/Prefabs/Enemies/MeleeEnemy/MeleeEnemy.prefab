@@ -205,13 +205,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3734316703695398717}
-  enemySpeed: 5
-  damage: 5
+  enemySpeed: 2.8
+  damage: 7
   hitWaitTime: 1
-  health: 10
+  health: 13
   knockBackTime: 0.5
-  expToGive: 5
-  coinValue: 1500
+  expToGive: 3
+  coinValue: 3
   coinDropRate: 0.5
 --- !u!1 &3734316703816503329
 GameObject:

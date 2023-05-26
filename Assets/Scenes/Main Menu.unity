@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5faab378a234c4fab99ddea735ba79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevelName: Emir
+  firstLevelName: MainScene
 --- !u!114 &703481217
 MonoBehaviour:
   m_ObjectHideFlags: 0
