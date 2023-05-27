@@ -42,7 +42,6 @@ public class ProjectileWeapon : Weapon
                     projectile.transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
                     Instantiate(projectile, projectile.transform.position, projectile.transform.rotation).gameObject
                         .SetActive(true);
-
                 }
                 SFXManager.instance.PlaySfxPitched(6);
             }
