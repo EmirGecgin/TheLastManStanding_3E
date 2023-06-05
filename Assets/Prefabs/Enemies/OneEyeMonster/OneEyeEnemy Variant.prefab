@@ -125,6 +125,6 @@ MonoBehaviour:
   hitWaitTime: 1
   health: 17
   knockBackTime: 0.5
-  expToGive: 5
+  expToGive: 3
   coinValue: 5
   coinDropRate: 0.5
